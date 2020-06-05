@@ -11,7 +11,11 @@ class Derivator():
         return diff(self.fun(self.var), self.var, self.degr)
     
     def returnDerivate(self):
-        return lambdify(self.var, self.derivate(), "numpy")
+        self.prime = lambdify(self.var, self.derivate(), "numpy")
+        return self.prime
     
-    def findCommon(self):
-        return
+    def findCommon(self, a, b):
+        for i in range(a, b):
+            if self.fun(i) == self.prime(i):
+                print("Pour " + str(i) + ", la fonction et sa dérivée ont la même valeur.")
+
