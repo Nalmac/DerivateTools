@@ -19,6 +19,8 @@ class Derivator():
     
     #Méthode qui permet de savoir si, dans un intervalle donné, il existe un entier pour lequel la fonction et sa dérivée ont la même valeur
     def findCommon(self, a, b):
+        commons = []
         for i in range(a, b):
             if self.fun(i) == self.prime(i):
-                print("Pour " + str(i) + ", la fonction et sa dérivée ont la même valeur.")
+                commons.append(i)
+        return commons
