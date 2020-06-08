@@ -34,10 +34,19 @@ class Interface():
         self.Result = Label(self.Frame2, text="")
 
         self.Frame3 = LabelFrame(self.window, text="Quand est-ce que la fonction est égale à sa dérivée ?")
+
+        self.ALabel = Label(self.Frame3, text="Borne de calcul A")
         self.a = StringVar()
         self.BorneA = Entry(self.Frame3, textvariable=self.a)
+        
+        self.Separator = Label(self.Frame3, text="")
+
+        self.BLabel = Label(self.Frame3, text="Borne de calcul B")
         self.b = StringVar()
         self.BorneB = Entry(self.Frame3, textvariable=self.b)
+
+        self.BR = Label(self.Frame3, text="")
+
         self.CalcuButton = Button(self.Frame3, text="Calculer", command=self.find)
         self.CommonLabel = Label(self.Frame3, text="")
 
@@ -49,6 +58,7 @@ class Interface():
         valueC = float(self.CValue.get())
         valueD = float(self.DValue.get())
         
+        #Initialisation de la fonction sous forme de lambda
         self.fun = lambda x: valueA*x**3 + valueB*x**2 + valueC*x + valueD
 
         #Initialisation du composant de dérivation
@@ -85,10 +95,14 @@ class Interface():
         self.FunButton.pack(side=RIGHT, padx=2, fill=Y)
         self.Result.pack(pady=10)
         self.Frame2.pack()
-        self.Frame3.pack()
-        self.BorneA.pack()
-        self.BorneB.pack()
-        self.CalcuButton.pack()
+        self.Frame3.pack(fill=X, padx= 10)
+        self.ALabel.pack(side=LEFT)
+        self.BorneA.pack(side=LEFT)
+        self.Separator.pack(side=LEFT, padx=50)
+        self.BLabel.pack(side=LEFT)
+        self.BorneB.pack(side=LEFT)
+        self.BR.pack()
+        self.CalcuButton.pack(side=RIGHT)
         self.CommonLabel.pack()
         self.window.mainloop()
 
